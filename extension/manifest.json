@@ -1,0 +1,19 @@
+{
+    "name": "Soteria AI: Privacy Reminder",
+    "version": "1.0",
+    "manifest_version": 3,
+    "description": "Personal Identifiable Information Locator Tool",
+    "permissions": ["tabs","scripting"],
+    "host_permissions": ["https://*/"], 
+    "action": {
+        "default_title": "Soteria AI",
+        "default_icon": "assets/Jam.png",
+        "default_popup": "UI/popup.html"
+    },
+    "icons": {
+        "16": "assets/Jam.png",
+        "32": "assets/Jam.png",
+        "48": "assets/Jam.png",
+        "128": "assets/Jam.png"
+    }
+}
