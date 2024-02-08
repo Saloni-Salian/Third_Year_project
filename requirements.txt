@@ -1,9 +1,10 @@
 fastapi==0.78.0
 keybert==0.5.1
 onnxruntime==1.10.0
-pydantic==1.9.1
---find-links https://download.pytorch.org/whl/torch_stable.html
-torch==1.11.0+cpu
+pydantic==1.10.8
+numpy==1.21.0
+torch==1.11.0 -f https://download.pytorch.org/whl/torch_stable.html
 transformers==4.10.0
 uvicorn==0.17.6
 fastt5==0.1.4
+click==8.1.7

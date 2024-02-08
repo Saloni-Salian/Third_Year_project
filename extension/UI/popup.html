@@ -29,13 +29,14 @@
           ></textarea>
           <button id="submit_text" class="btn btn-info m-2">Show me</button>
           <div id="results" style="display: none">
-            <textarea
-              class="form-control m-2"
-              style="font-size: small"
-              rows="5"
-              id="paraphrased_text"
-              placeholder="Paraphrased result..."
-            ></textarea>
+            <div class="card-body">
+              <h3>Personal Information</h3>
+              <div
+                id="ner_results"
+                class="entities"
+                style="font-size: small"
+              ></div>
+            </div>
           </div>
           <!-- Spinner to be shown while the is being fetched from the server -->
           <div id="loading" class="mt-3" style="display: none">

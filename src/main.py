@@ -3,7 +3,7 @@ from pydantic import BaseModel
 from typing import List, Dict
 from starlette.middleware.cors import CORSMiddleware
 
-from .NER_model.en_pii_NER_model import NEROnnxModel
+from NER_model.en_pii_NER_onnx_model import NEROnnxModel
 
 # load distilbert NER model
 print('Loading distilbert NER model & tokenizer...')

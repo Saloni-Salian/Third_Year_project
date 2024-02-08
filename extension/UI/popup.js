@@ -4,7 +4,7 @@ base_url = "http://0.0.0.0:8000";
 function getSelectedText() {
     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
         let tab = tabs[0];
-
+        console.log(tab)
         chrome.scripting.executeScript(
             {
                 target: { tabId: tab.id },              // Specify a target to inject JavaScript
@@ -74,6 +74,7 @@ function getResults() {
             }
             else {
                 res = JSON.parse(res)
+                console.log(res)
                 // MIGHT NEED TO DYNAMICALLY POPULATE THE PII
                 // Populate the output textarea with the paraphrased and summarized text
                 // document.getElementById("paraphrased_text").value = res.paraphrased.text;
@@ -81,7 +82,7 @@ function getResults() {
                 
                 // Populate the synonyms of keywords
                 // populateSynonyms(res.keyword_synonyms.response);
-                // render(res.name_entities.render_data)
+                render(res.name_entities.render_data)
                 // Display the output in the popup
                 document.getElementById("results").style.display = "block";
             }

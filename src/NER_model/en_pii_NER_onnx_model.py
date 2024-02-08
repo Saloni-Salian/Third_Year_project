@@ -21,11 +21,11 @@ class NEROnnxModel():
     """Build NER onnx model and aggregate results into data to be rendered"""
     def __init__(self, quant=True) -> None:
         if quant:
-            model_path = "ner/model/model_quant.onnx"
+            model_path = "/Users/salonisalian/Desktop/University Files/Year 3/third_year_project/ner/model/model_quant.onnx"
         else: 
-            model_path = "ner/model/model.onnx"
+            model_path = "/Users/salonisalian/Desktop/University Files/Year 3/third_year_project/ner/model/model.onnx"
         self.model = create_model_for_provider(model_path)
-        self.tokenizer = AutoTokenizer.from_pretrained("ner/tokenizer/")
+        self.tokenizer = AutoTokenizer.from_pretrained("/Users/salonisalian/Desktop/University Files/Year 3/third_year_project/ner/tokenizer/")
         self.id2label = {0: "O", 1: "B-PER", 2: "I-PER", 3: "B-ORG",
             4: "I-ORG", 5: "B-LOC", 6: "I-LOC", 7: "B-MISC", 8: "I-MISC"}
     

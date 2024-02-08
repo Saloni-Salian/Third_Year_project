@@ -7,11 +7,11 @@ class NERModel:
     Load the pii model that is based on distilbert and run the pipeline
     '''
     def __init__(self) -> None:
-        self.model_checkpoint = "beki/en_spacy_pii_distilbert"
+        self.model_checkpoint = "elastic/distilbert-base-uncased-finetuned-conll03-english"
         self.torch_device = "cpu"
-        print(f"Loading the {model_checkpoint} tokenizer and model...")
-        self.tokenizer = AutoTokenizer.from_pretrained(model_checkpoint)
-        self.model = AutoModelForTokenClassification.from_pretrained(model_checkpoint)
+        print(f"Loading the {self.model_checkpoint} tokenizer and model...")
+        self.tokenizer = AutoTokenizer.from_pretrained(self.model_checkpoint)
+        self.model = AutoModelForTokenClassification.from_pretrained(self.model_checkpoint)
         self.id2label = self.model.config.id2label
         print("Model loaded!")
     
