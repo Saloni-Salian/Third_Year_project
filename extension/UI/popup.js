@@ -46,48 +46,33 @@ function getResults() {
     let text = document.getElementById("input_text").value;
     let loading_text = document.getElementById("loading_text");
     
-    // If there is no input text, throw error 
-    if (text == "") {
-        error_box.innerHTML = "No text available to help you :( Please enter something!";
-        error_box.style.display = "block";
-    }
-    else {
-        error_box.style.display = "none";
+    error_box.style.display = "none";
 
-        // Start displaying the spinner
-        loading_text.innerHTML = "Fetching results...";
-        document.getElementById("loading").style.display = "block";
+    // Start displaying the spinner
+    loading_text.innerHTML = "Fetching results...";
+    document.getElementById("loading").style.display = "block";
 
-        // Create the JSON request body as specified in the API endpoint
-        var body = JSON.stringify({
-            text: text
-        })
+    // Create the JSON request body as specified in the API endpoint
+     var body = JSON.stringify({
+        text: text
+    })
 
-        let predict_url = `${base_url}/predict/`;     // POST endpoint to be hit
+    let predict_url = `${base_url}/predict/`;     // POST endpoint to be hit
 
-        doPost(predict_url, body, (res, err) => {
-            // Stop displaying the spinner on receiving a response
-            document.getElementById("loading").style.display = "none";
-            if(err){
-                error_box.innerHTML = "Sorry! Error in fetching your results :(";
-                error_box.style.display = "block";
-            }
-            else {
-                res = JSON.parse(res)
-                console.log(res)
-                // MIGHT NEED TO DYNAMICALLY POPULATE THE PII
-                // Populate the output textarea with the paraphrased and summarized text
-                // document.getElementById("paraphrased_text").value = res.paraphrased.text;
-                // document.getElementById("summarized_text").value = res.summarized.text;
-                
-                // Populate the synonyms of keywords
-                // populateSynonyms(res.keyword_synonyms.response);
-                render(res.name_entities.render_data)
-                // Display the output in the popup
-                document.getElementById("results").style.display = "block";
-            }
-        })
-    }
+    doPost(predict_url, body, (res, err) => {
+         // Stop displaying the spinner on receiving a response
+        document.getElementById("loading").style.display = "none";
+        if(err){
+            error_box.innerHTML = "Sorry! Error in fetching your results :(";
+            error_box.style.display = "block";
+        }
+        else {
+            res = JSON.parse(res)
+            render(res.name_entities.render_data)
+            // Display the output in the popup
+            document.getElementById("results").style.display = "block";
+        }
+    })
 }
 
 
@@ -107,5 +92,18 @@ function render(render_data) {
     document.getElementById("ner_results").innerHTML = render_str;
 }
 
+function activateSubmit() {
+    // Get the text area and submit button
+    const textArea = document.getElementById('input_text');
+    const submitButton = document.getElementById('submit_text');
+  
+    // Add an event listener to the text area
+    textArea.addEventListener('input', function () {
+      // Enable the submit button if there is text in the text area, otherwise disable it
+      submitButton.disabled = textArea.value.trim() === '';
+    });
+  }
+
+document.addEventListener('DOMContentLoaded', activateSubmit);
 document.addEventListener("DOMContentLoaded", getSelectedText);
 document.getElementById("submit_text").addEventListener("click", getResults);

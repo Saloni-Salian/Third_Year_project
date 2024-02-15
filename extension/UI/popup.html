@@ -3,32 +3,55 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="reset" href="reset.css" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
-    <title>Privacy Reminder</title>
     <link rel="stylesheet" href="style.css" />
+    <title>Privacy Reminder</title>
   </head>
-  <body style="width: 400px; max-height: fit-content" class="pb-2">
+  <body style="width: 400px; max-height: fit-content" class="p-2">
     <div class="container-fluid text-center mt-1">
-      <img src="../assets/Jam.png" width="150px" />
-      <div id="main" class="mb-2">
-        <div class="card-header">
+      <!-- <img src="../assets/Jam.png" width="50px" /> -->
+      <div id="main" class="mb-4">
+        <header class="card-header">
           <h1>Privacy Concerns</h1>
-        </div>
+        </header>
         <div class="card-body">
-          <textarea
-            class="form-control m-2"
-            style="font-size: small"
-            rows="5"
-            id="input_text"
-            placeholder="Select some text on any page or write/paste something..."
-          ></textarea>
-          <button id="submit_text" class="btn btn-info m-2">Show me</button>
-          <div id="results" style="display: none">
+          <section id="Instruction Manual" class="card-text">
+            <p>
+              Welcome to the privacy reminder application! To use the
+              application, you should input text that you are worried contains
+              sensitive information and click submit. It's that easy! There are
+              3 options to input text:
+            </p>
+            <ol>
+              <li>Highlight the text and open the extension.</li>
+              <li>Copy/paste text from the site you are using.</li>
+              <li>Manually input text.</li>
+            </ol>
+          </section>
+          <section>
+            <textarea
+              class="form-control mb-4 mt-4"
+              style="font-size: medium"
+              rows="7"
+              id="input_text"
+              placeholder="Select some text on any page or write/paste something..."
+            ></textarea>
+            <button
+              type="submit"
+              class="btn btn-primary m-2"
+              id="submit_text"
+              disabled
+            >
+              Show me
+            </button>
+          </section>
+          <section id="results" style="display: none">
             <div class="card-body">
               <h3>Personal Information</h3>
               <div
@@ -37,23 +60,23 @@
                 style="font-size: small"
               ></div>
             </div>
-          </div>
+          </section>
           <!-- Spinner to be shown while the is being fetched from the server -->
-          <div id="loading" class="mt-3" style="display: none">
+          <section id="loading" class="mt-3" style="display: none">
             <div class="mb-1" id="loading_text"></div>
             <div class="d-flex justify-content-center">
               <div class="spinner-border" role="status">
                 <span class="visually-hidden"></span>
               </div>
             </div>
-          </div>
+          </section>
           <!-- To display any error that might be thrown -->
-          <div
+          <section
             id="error_box"
             class="alert alert-danger m-2 mt-3"
             role="alert"
             style="display: none"
-          ></div>
+          ></section>
         </div>
       </div>
     </div>
