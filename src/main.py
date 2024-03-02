@@ -1,14 +1,14 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
-from typing import List, Dict
+from typing import List
 from starlette.middleware.cors import CORSMiddleware
 
-from NER_model.en_pii_NER_onnx_model import NEROnnxModel
+# from NER_model.en_pii_NER_onnx_model import NEROnnxModel
+from NER_model.pii_model import NEROnnxModel
 
 # load distilbert NER model
-print('Loading distilbert NER model & tokenizer...')
 ner_pipeline = NEROnnxModel()
-print('distilbert NER model & tokenizer loaded!')
+print('The distilbert NER model & tokenizer sucessfully loaded!')
 
 app = FastAPI()
 
@@ -17,15 +17,11 @@ app.add_middleware(
     CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"]
 )
 
-class Request(BaseModel):
-    text: str    
-class EntityData(BaseModel):
-    start: int
-    end: int
-    label: str
+class NERRequest(BaseModel):
+    text: str   
 class RenderData(BaseModel):
     text: str
-    ents: List[EntityData]
+    ents: List
     title: None
 class NERResponse(BaseModel):
     render_data: RenderData
@@ -37,8 +33,8 @@ class NERModelResponse(BaseModel):
 def get_root():
     return "This is the RESTful API for PrivacyDetection"
 
-@app.post("/predict", response_model=NERModelResponse)
-async def predict(request: Request):
+@app.post("/results", response_model=NERModelResponse)
+async def predict(request: NERRequest):
     ner_text = NERResponse(render_data=ner_pipeline(request.text))
     return NERModelResponse(
         original=request.text,

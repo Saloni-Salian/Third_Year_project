@@ -4,19 +4,20 @@ body{
 
 h1 { font-family: Tahoma, Verdana, sans-serif, Geneva; font-size: 24px; font-weight: bold; line-height: 25px; } 
 h3 { font-family: Tahoma, Verdana, sans-serif, Geneva; font-size: 18px; font-weight: 100; line-height: 20px; }
-p, li { font-family: Tahoma, Verdana, sans-serif, Geneva; font-size: 16px; font-weight: 1000; line-height: 20px;} 
+p, li { font-family: Tahoma, Verdana, sans-serif, Geneva; font-size: 16px; font-weight: 100; line-height: 20px;} 
 
+/* redo */
 .entities {
     line-height: 2;
 }
 
 [data-entity] {
     padding: 0.25em 0.35em;
-     margin: 0px 0.25em;
-     line-height: 1;
-     display: inline-block;
-     border-radius: 0.25em;
-     border: 1px solid;
+    margin: 0px 0.25em;
+    line-height: 1;
+    display: inline-block;
+    border-radius: 0.25em;
+    border: 1px solid;
 }
 
 [data-entity]::after {
@@ -31,3 +32,5 @@ p, li { font-family: Tahoma, Verdana, sans-serif, Geneva; font-size: 16px; font-
     vertical-align: middle;
     margin: 0px 0px 0.1rem 0.5rem;
 }
+
+
