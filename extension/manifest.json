@@ -7,13 +7,13 @@
     "host_permissions": ["https://*/"], 
     "action": {
         "default_title": "Soteria AI",
-        "default_icon": "assets/Jam.png",
+        "default_icon": "assets/Magnifyingglass.png",
         "default_popup": "UI/popup.html"
     },
     "icons": {
-        "16": "assets/Jam.png",
-        "32": "assets/Jam.png",
-        "48": "assets/Jam.png",
-        "128": "assets/Jam.png"
+        "16": "assets/Magnifyingglass.png",
+        "32": "assets/Magnifyingglass.png",
+        "48": "assets/Magnifyingglass.png",
+        "128": "assets/Magnifyingglass.png"
     }
 }

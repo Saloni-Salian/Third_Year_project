@@ -3,7 +3,6 @@ from pydantic import BaseModel
 from typing import List
 from starlette.middleware.cors import CORSMiddleware
 
-# from NER_model.en_pii_NER_onnx_model import NEROnnxModel
 from NER_model.pii_model import NEROnnxModel
 
 # load distilbert NER model
@@ -19,24 +18,24 @@ app.add_middleware(
 
 class NERRequest(BaseModel):
     text: str   
-class RenderData(BaseModel):
+class DataKeys(BaseModel):
     text: str
     ents: List
     title: None
+class NERData(BaseModel):
+    data_keys: DataKeys
 class NERResponse(BaseModel):
-    render_data: RenderData
-class NERModelResponse(BaseModel):
     original: str
-    name_entities: NERResponse
+    name_entities: NERData
 
 @app.get("/")
 def get_root():
     return "This is the RESTful API for PrivacyDetection"
 
-@app.post("/results", response_model=NERModelResponse)
+@app.post("/results", response_model=NERResponse)
 async def predict(request: NERRequest):
-    ner_text = NERResponse(render_data=ner_pipeline(request.text))
-    return NERModelResponse(
+    ner_text = NERData(data_keys=ner_pipeline(request.text))
+    return NERResponse(
         original=request.text,
         name_entities=ner_text
     )

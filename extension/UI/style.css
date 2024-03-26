@@ -4,33 +4,29 @@ body{
 
 h1 { font-family: Tahoma, Verdana, sans-serif, Geneva; font-size: 24px; font-weight: bold; line-height: 25px; } 
 h3 { font-family: Tahoma, Verdana, sans-serif, Geneva; font-size: 18px; font-weight: 100; line-height: 20px; }
-p, li { font-family: Tahoma, Verdana, sans-serif, Geneva; font-size: 16px; font-weight: 100; line-height: 20px;} 
+p, li{ font-family: Tahoma, Verdana, sans-serif, Geneva; font-size: 16px; font-weight: 100; line-height: 20px;} 
 
-/* redo */
-.entities {
-    line-height: 2;
-}
-
+/* CSS for the actual entity in the text */
 [data-entity] {
-    padding: 0.25em 0.35em;
-    margin: 0px 0.25em;
+    padding: 0.25em 0.4em;
     line-height: 1;
     display: inline-block;
-    border-radius: 0.25em;
-    border: 1px solid;
+    border-radius: 0.2em;
+    border: 2px solid;
 }
 
-[data-entity]::after {
-    box-sizing: border-box;
-    content: attr(data-entity);
-    font-size: 0.6em;
+/* CSS for the entity classification */
+[data-entity]::after /* This generates a pseudo-child containg the classification after the entity*/
+{
+    content: attr(data-entity); /*The text in the child is the classification*/
     line-height: 1;
-    padding: 0.35em;
-    border-radius: 0.35em;
-    text-transform: uppercase;
+    box-sizing: border-box;
     display: inline-block;
     vertical-align: middle;
-    margin: 0px 0px 0.1rem 0.5rem;
+    text-transform: uppercase;
+    margin: 0 0 0.2em 0.5rem;
+    font-size: 0.8em;
+    font-weight: bold;
 }
 
 
