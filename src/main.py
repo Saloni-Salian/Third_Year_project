@@ -1,3 +1,4 @@
+import uvicorn
 from fastapi import FastAPI
 from pydantic import BaseModel
 from typing import List
@@ -39,3 +40,6 @@ async def predict(request: NERRequest):
         original=request.text,
         name_entities=ner_text
     )
+
+if __name__ == "__main__":
+    uvicorn.run(app, host='0.0.0.0', port = 8000)

@@ -86,7 +86,7 @@ function getResults() {
   var body = JSON.stringify({
     text: text,
   });
-
+  console.log(body);
   let predict_url = "http://0.0.0.0:8000/results"; // URL to the API endpoint
 
   doPost(predict_url, body, displayResults);
@@ -95,7 +95,7 @@ function getResults() {
 //This function maps the labels to different colours
 function getColour(label) {
   const colourMap = {
-    PER: "green",
+    PER: "#90EE90",
     ORG: "yellow",
     LOC: "#6495ED",
     MISC: "red",

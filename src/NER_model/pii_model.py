@@ -5,18 +5,10 @@ class NEROnnxModel():
     def __call__(self, text: str) -> str:
         # load quantized model and tokenizers
         quantized_model = ORTModelForTokenClassification.from_pretrained("/Users/salonisalian/Desktop/University Files/Year 3/third_year_project/model-quantized")
-        tokenizerdisq = AutoTokenizer.from_pretrained("/Users/salonisalian/Desktop/University Files/Year 3/third_year_project/model-quantized")
-
-        # model_id='/Users/salonisalian/Desktop/University Files/Year 3/third_year_project/pii_onnx:/ner/model/model-quantized'
-        # tokenizer_id='/Users/salonisalian/Desktop/University Files/Year 3/third_year_project/pii_onnx:'
-
-        # tokenizer = AutoTokenizer.from_pretrained(tokenizer_id)
-        # model = ORTModelForTokenClassification.from_pretrained(model_id)
-        # tokenizer.model_input_names = ['input_ids', 'attention_mask']      
+        tokenizerdisq = AutoTokenizer.from_pretrained("/Users/salonisalian/Desktop/University Files/Year 3/third_year_project/model-quantized")    
          
         #create transformers pipeline
         onnx_ner = pipeline("token-classification", model=quantized_model, tokenizer=tokenizerdisq, aggregation_strategy="first")
-        # onnx_ner = pipeline("token-classification", model=model, tokenizer=tokenizer, aggregation_strategy="first")
 
         #run the pipeline and return the results
         pred = onnx_ner(text)
