@@ -89,8 +89,8 @@ function getResults() {
     text: text,
   });
   console.log(body);
-  // let predict_url = "http://0.0.0.0:8000/results"; // URL to the API endpoint
-  let predict_url = `${server_URL}/results`;
+
+  let predict_url = `${server_URL}/results`; //URl to the POST request with the API endpoint
   doPost(predict_url, body, displayResults);
 }
 
@@ -101,73 +101,6 @@ function getColour(label) {
     ORG: "yellow",
     LOC: "#6495ED",
     MISC: "red",
-  };
-  return colourMap[label] || "Turquoise";
-}
-
-function getColour1(label) {
-  // Define a color mapping for each entity label
-  const colourMap = {
-    PREFIX: "#6495ED",
-    FIRSTNAME: "#6495ED",
-    MIDDLENAME: "#6495ED",
-    LASTNAME: "#6495ED",
-    FULLNAME: "#6495ED",
-    NAME: "#6495ED",
-    GENDER: "#6495ED",
-    DATE: "#6495ED",
-    NUMBER: "#6495ED",
-    SEXTYPE: "#6495ED",
-    SEX: "#6495ED",
-    SSN: "#6495ED",
-
-    IBAN: "yellow",
-    BITCOINADDRESS: "yellow",
-    ETHEREUMADDRESS: "yellow",
-    BIC: "yellow",
-    LITECOINADDRESS: "yellow",
-
-    ACCOUNTNAME: "green",
-    ACCOUNTNUMBER: "green",
-    AMOUNT: "green",
-    CURRENCY: "green",
-    CREDITCARDNUMBER: "green",
-    PIN: "green",
-    CURRENCYCODE: "green",
-    CURRENCYSYMBOL: "green",
-    CREDITCARDISSUER: "green",
-    CREDITCARDCVV: "green",
-    CURRENCYNAME: "green",
-
-    STREETADDRESS: "red",
-    STREET: "red",
-    CITY: "red",
-    ZIPCODE: "red",
-    EMAIL: "red",
-    PHONE_NUMBER: "red",
-    STATE: "red",
-    BUILDINGNUMBER: "red",
-    MASKEDNUMBER: "red",
-    SECONDARYADDRESS: "red",
-    COUNTY: "red",
-    TIME: "red",
-
-    JOBDESCRIPTOR: "orange",
-    JOBTITLE: "orange",
-    COMPANY_NAME: "orange",
-    JOBAREA: "orange",
-    JOBTYPE: "orange",
-
-    URL: "pink",
-    USERNAME: "pink",
-    PASSWORD: "pink",
-    DISPLAYNAME: "pink",
-
-    IPV4: "purple",
-    IPV6: "purple",
-    MAC: "purple",
-    USERAGENT: "purple",
-    IP: "purple",
   };
   return colourMap[label] || "Turquoise";
 }
