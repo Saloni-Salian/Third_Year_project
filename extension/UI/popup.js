@@ -1,3 +1,5 @@
+let server_URL = "https://975e-35-197-93-146.ngrok-free.app";
+
 // This is a helper function to get the highlighted text from the current tab and return the String
 function getHighlightedTextHelper() {
   var highlighted_text = window.getSelection().toString();
@@ -87,8 +89,8 @@ function getResults() {
     text: text,
   });
   console.log(body);
-  let predict_url = "http://0.0.0.0:8000/results"; // URL to the API endpoint
-
+  // let predict_url = "http://0.0.0.0:8000/results"; // URL to the API endpoint
+  let predict_url = `${server_URL}/results`;
   doPost(predict_url, body, displayResults);
 }
 
