@@ -1,4 +1,5 @@
 let server_URL = "https://975e-35-197-93-146.ngrok-free.app";
+// Change to "http://0.0.0.0:8000" if running on local machine
 
 // This is a helper function to get the highlighted text from the current tab and return the String
 function getHighlightedTextHelper() {
@@ -137,6 +138,9 @@ function activateSubmit() {
   });
 }
 
-document.addEventListener("DOMContentLoaded", activateSubmit);
-document.addEventListener("DOMContentLoaded", getHighlightedText);
+// Inject the script when the DOM is loaded
+document.addEventListener("DOMContentLoaded", activateSubmit); // To activate the Display Personal Information button
+document.addEventListener("DOMContentLoaded", getHighlightedText); // To populate the input box with highlighted text
+
+// Inject the script when the user has clicked the Display Personal Information button
 document.getElementById("submit_text").addEventListener("click", getResults);
