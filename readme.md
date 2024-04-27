@@ -13,9 +13,9 @@ This project is an NLP powered privacy detector to help people identify what per
 ## Installation
 
 1. Clone/Download the repository
-2. Upload the Jupyter Notebook named model_backend onto [Google Colab](https://colab.google)
+2. Upload the Jupyter Notebook named `Deploying_model` onto [Google Colab](https://colab.google)
 3. Run the note on Colab
-4. Once the API server from the model is live and running, go the extension/UI/popup.js and replace the public URL string in    server_URL variable.
+4. Once the API server from the model is live and running, go the `extension/UI/popup.js` and replace the public URL string in    server_URL variable.
 5. Open Google Chrome and go to Extensions -> Manage Extensions
 6. Upload the repository to the 'Load unpacked' section
 7. Start using the Extension
