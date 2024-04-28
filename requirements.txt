@@ -1,10 +1,8 @@
-fastapi==0.78.0
-keybert==0.5.1
-onnxruntime==1.10.0
+fastapi==0.100.0
 pydantic==1.10.8
-numpy==1.21.0
-torch==1.11.0 -f https://download.pytorch.org/whl/torch_stable.html
-transformers==4.10.0
+setuptools==69.0.3
+starlette==0.27.0
+transformers==4.39.0.dev0
 uvicorn==0.17.6
-fastt5==0.1.4
-click==8.1.7
+optimum[onnxruntime]
+pytest

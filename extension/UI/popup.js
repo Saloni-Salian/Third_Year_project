@@ -1,4 +1,4 @@
-let server_URL = "https://975e-35-197-93-146.ngrok-free.app";
+let server_URL = "http://0.0.0.0:8000";
 // Change to "http://0.0.0.0:8000" if running on local machine
 
 // This is a helper function to get the highlighted text from the current tab and return the String
@@ -89,7 +89,6 @@ function getResults() {
   var body = JSON.stringify({
     text: text,
   });
-  console.log(body);
 
   let predict_url = `${server_URL}/results`; //URl to the POST request with the API endpoint
   doPost(predict_url, body, displayResults);
