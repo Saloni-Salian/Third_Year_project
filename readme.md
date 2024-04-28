@@ -8,7 +8,8 @@ This project is an NLP powered privacy detector to help people identify what per
 
 1. [Installation](#installation)
 2. [Usage](#usage)
-3. [Contributing](#contributing)
+3. [Testing](#testing)
+4. [Contributing](#contributing)
 
 ## Installation
 
@@ -24,6 +25,10 @@ This project is an NLP powered privacy detector to help people identify what per
 ## Usage
 
 Input text into the input text box and click 'Display Personal Information'
+
+## Testing
+
+When testing the model, first install the modules in the `requirments.txt` page. Then go to `src/NER_model/pii_model.py` and change the paths to the model and tokenizer to the absolute paths on your device.
 
 ## Contributing
 

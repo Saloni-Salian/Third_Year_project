@@ -2,7 +2,8 @@ fastapi==0.100.0
 pydantic==1.10.8
 setuptools==69.0.3
 starlette==0.27.0
-transformers==4.39.0.dev0
+transformers==4.39.0
 uvicorn==0.17.6
 optimum[onnxruntime]
 pytest
+httpx
