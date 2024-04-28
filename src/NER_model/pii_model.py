@@ -34,7 +34,7 @@ class NEROnnxModel():
         return {'text':text, 'ents':return_entities, 'title': None}
     
 if __name__ == '__main__':
-    text = "Jack Sparrow lives in New York!"
+    text = "John Snow lives in London!"
     pipe = NEROnnxModel()
     results = pipe(text)
     print(results)

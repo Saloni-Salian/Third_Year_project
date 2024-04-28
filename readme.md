@@ -19,7 +19,7 @@ This project is an NLP powered privacy detector to help people identify what per
 4. Run the note on Colab
 5. Once the API server from the model is live and running, go the `extension/UI/popup.js` and replace the public URL string in `server_URL` variable.
 6. Open Google Chrome and go to Extensions -> Manage Extensions
-7. Upload the repository to the 'Load unpacked' section
+7. Turn on Developer mode and upload the repository to the 'Load unpacked' section
 8. Start using the Extension
 
 ## Usage
