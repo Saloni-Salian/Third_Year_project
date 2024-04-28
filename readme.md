@@ -18,7 +18,7 @@ This project is an NLP powered privacy detector to help people identify what per
 3. On Google Colab add the ngrok authtoken in `Secrets`, name the secret `NGROK` and enable notebook access.
 4. Run the notebook on Colab
 5. Once the API server with the model is live and running, copy the public URL displayed at the botton of the running cell output.
-6. Go the `extension/UI/popup.js` from the copied repo and replace the public URL string in `server_URL`.
+6. Go the `extension/UI/popup.js` from the copied repo and replace the public URL string in `server_URL` with the copied URL.
 6. Open Google Chrome and go to Extensions -> Manage Extensions
 7. Turn on Developer mode and upload the extension folder to the 'Load unpacked' section
 8. Open a new page and start using the Extension
