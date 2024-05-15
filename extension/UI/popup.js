@@ -27,6 +27,8 @@ async function getHighlightedText() {
       // If the user highlighted text then fill in the textarea with the text
       if (res["result"] !== "") {
         document.getElementById("input_text").value = res["result"];
+        const submitButton = document.getElementById("submit_text");
+        submitButton.disabled = false;
       }
     }
   );
